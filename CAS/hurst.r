@@ -1,3 +1,5 @@
+library(pracma)
+
 model2 <- function(n, mean, sd) {
   y <- rep(0, n)
   eps <- rnorm(n, mean, sd)
@@ -7,17 +9,18 @@ model2 <- function(n, mean, sd) {
 }
 
 
-N <- 2^14
+n <- 2^14
 x <- model2(N, 0, 1)
 plot(x)
 
 m <- 0:5
 m <- 2^m
-n <- N / m
+n <- n / m
 
 for (i in 1:6) {
     print(m[i])
-    X <- matrix(x, ncol = m[i])
+    x <- matrix(x, ncol = m[i])
     means <- colSums(X)
-    Y <- t(t(X) - means)
+    y <- t(t(X) - means)
 }
+# foreach knihovna
