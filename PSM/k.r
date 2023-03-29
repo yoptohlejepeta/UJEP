@@ -1,6 +1,0 @@
-library(car)
-library(corrgram)
-library(corrplot)
-library(FactoMineR)
-library(factoextra)
-library(psych)
