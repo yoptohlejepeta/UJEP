@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 % \usepackage{amsthm}
+% package - mathtool
 
 \usepackage{graphicx}
 \usepackage[unicode]{hyperref}
@@ -87,7 +88,7 @@ Suma:
 $$ \sum_{i=1}^{n}  \frac{1}{2^n} $$
 
 Abeceda:
-$$ \alpha \beta \gamma \delta \epsilon \zeta \eta \theta \iota \kappa \lambda \mu \nu \xi \pi \rho \sigma \tau \upsilon \phi \chi \psi \omega  $$
+$$ \alpha \beta \gamma \delta \epsilon \zeta \eta \theta \iota \kappa \lambda \mu \nu \xi \pi \rho \sigma \tau \upsilon \varphi \chi \psi \omega  $$
 
 Limita:
 $$ \lim_{n \to \infty} \frac{1}{2^n} $$
@@ -106,5 +107,152 @@ $$ x_1, x_2, \dots, x_n, x_{n+1} $$
 
 Tečky:
 $$ \dots, \cdots, \ldots $$
+
+Matice:
+$$
+    \left(
+    \begin{matrix}
+        1 & 2 & 3 \\
+        a & b & c \\
+        7 & 8 & 9
+    \end{matrix}
+    \right]
+$$
+
+$$
+    \begin{pmatrix}
+        1 & 2 & 3 \\
+        a & b & c \\
+        7 & 8 & 9
+    \end{pmatrix}
+$$
+
+$$
+    \begin{bmatrix}
+        1 & 2 & 3 \\
+        a & b & c \\
+        7 & 8 & 9
+    \end{bmatrix}
+$$
+
+$$
+    \begin{Bmatrix}
+        1 & 2 & 3 \\
+        a & b & c \\
+        7 & 8 & 9
+    \end{Bmatrix}
+$$
+
+$$
+    \begin{vmatrix}
+        1 & 2 & 3 \\
+        a & b & c \\
+        7 & 8 & 9
+    \end{vmatrix}
+    \quad % nemůžem dělat mezery v matematické prostředí
+    \begin{Vmatrix}
+        1 & 2 & 3 \\
+        a & b & c \\
+        7 & 8 & 9
+    \end{Vmatrix}
+$$
+
+$$
+    \left \lceil
+    \begin{matrix}
+        1 & 2 & 3 \\
+        a & b & c \\
+        7 & 8 & 9
+    \end{matrix}
+    \right \rceil
+$$
+
+$$
+    \left \lfloor
+    \begin{matrix}
+        1 & 2 & 3 \\
+        a & b & c \\
+        7 & 8 & 9
+    \end{matrix}
+    \right \rfloor
+$$
+
+$$
+    \left \langle
+    \begin{matrix}
+        1 & 2 & 3 \\
+        a & b & c \\
+        7 & 8 & 9
+    \end{matrix}
+    \right \rangle
+$$
+
+$$
+    \left(
+    \begin{array}{cc|c} % blbě závorky
+            1 & 2 & 3 \\
+            a & b & c \\
+            \hline
+            7 & 8 & 9
+        \end{array}
+    \right)
+$$
+
+$$
+    \left(
+    \begin{matrix}
+            1 & 2 & 3 \\
+            a & b & c \\
+            7 & 8 & 9
+        \end{matrix}
+    \right)
+$$
+
+$$
+    \left(
+    \begin{smallmatrix}
+            1 & 2 & 3\\
+            a & b & c\\
+            7 & 8 & 9
+        \end{smallmatrix}
+    \right)
+$$
+
+Zalomená rovnice:
+
+\begin{equation}
+    \begin{split}
+        1 &=  \cos ^ 2 x + \sin ^2 x \\
+        & =  \tg ^2 x + 17
+    \end{split}
+\end{equation}
+
+\begin{multline}
+    1 =  \cos ^ 2 x + \sin ^2 x \\
+    =  \tg ^2 x + 17
+\end{multline}
+
+Soustavy rovnic:
+
+\begin{align} \label{TriSoust}
+    2x + 3y & = -5  & 3x + 5y   & = -121  \\
+    x - 7y  & = 121 & 17x + 19y & = 0{,}5
+\end{align}
+
+Label:
+
+\begin{equation} \label{EulRce}
+    e^{\mathrm{i} \pi} + 1 = 0
+\end{equation}
+
+Za velmi krásnou rovnici je považována rovnice \ref{EulRce}, ketrá se nachází na straně \pageref{EulRce}.
+Co se stane, když se odvoláme na něco co má jeden štítek, ale dvě čísla, jako je tomu u \ref{TriSoust}?
+Jak to udělat, aby se u soustavy zobrazovalo jen jedno číslo?
+Jak se odkázat na konkrétní řádek?
+
+Výroková logika:
+$p \wedge q \vee r \Rightarrow p \Leftrightarrow q \neg r$
+$ \emptyset A \subset B \subseteq B 2 \leq 3 \geq 1$
+
 
 \end{document}
