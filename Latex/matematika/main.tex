@@ -1,6 +1,6 @@
 \documentclass[a4paper, 12pt]{article}
 
-\usepackage[czech]{babel}
+\usepackage[greek, czech]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[a4paper, margin=2cm]{geometry}
 \usepackage{amsmath}
@@ -9,6 +9,10 @@
 % package - mathtool
 
 \usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{multicol}
+\usepackage{alltt}
+
 \usepackage[unicode]{hyperref}
 
 
@@ -25,6 +29,63 @@
 \maketitle
 
 % \tableofcontents
+
+\section{Jednoduchy nadpis}
+Píšu tady nějaký text a tady je odkaz na poznamku \footnote[1]{První poznámka}.
+Poznámky \footnotemark[1]{} se objeví pod čarou dole \footnote{Druhá poznámka}
+
+\begin{multicols}{4}
+    \tiny
+    \lipsum[1-2]
+\end{multicols}
+
+{\scriptsize
+\lipsum[1]}
+
+\textgreek{abcd}
+
+\begin{verbatim}
+    Toto je první řádek.
+Toto je druhý řádek.
+ Toto je třetí řádek.
+Zvýrazněné \emph{slovo}
+\end{verbatim}
+
+\begin{alltt}
+    Toto je první řádek.
+    Toto je druhý řádek.
+     Toto je třetí řádek.
+    Zvýrazněné \emph{slovo}
+    Jde to \textbf{tučně}?
+    Jde to \textit{italikou}?
+\end{alltt}
+
+\begin{quote}
+    \lipsum[1-2]
+\end{quote}
+
+\begin{quotation}
+    \lipsum[1-2] \cite[Str. 21-22]{Tolkien1991}
+\end{quotation}
+
+\begin{quote}
+    Toto je jedna citace. \cite{Tolkien1991}
+\end{quote}
+
+\begin{thebibliography}{9}
+    \bibitem{Adams2000}
+    Adams, R. (2000). Sbohem a díky za ryby!. Omnia.
+
+    \bibitem{Tolkien1991}
+    Tolkien, J.R.R. (1991). Hobit: Aneb cesta tam a zase zpátky. SPN.
+
+\end{thebibliography}
+
+\lipsum
+
+\subsection{Napdis druhé úrovně}
+% \lipsum[2]
+\lipsum[1-32]
 
 Gon. funkce:
 
