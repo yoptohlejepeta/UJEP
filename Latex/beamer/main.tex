@@ -1,0 +1,79 @@
+\documentclass[12pt, aspectratio=169]{beamer} % options: handout
+
+\usetheme{metropolis}
+\setbeamertemplate{frame footer}{\insertshortauthor~| \insertshortinstitute}
+\setbeamerfont{page number in head/foot}{size=\tiny}
+\setbeamercolor{footline}{fg=gray}
+
+\usepackage[greek, czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title[První prezentace]{Moje úplně první\\ prezentace v \LaTeX u}
+\author[Kotlan]{Petr Kotlan}
+\institute[Přf UJEP]{Přírodovědecká fakulta\\ Univerzita J. E. Purkyně}
+\date{\today}
+
+\begin{document}
+
+
+\begin{frame}
+
+    \maketitle
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Obsah}
+    % \setbeamertemplate{section in toc}[sections numbered]
+    \tableofcontents
+\end{frame}
+
+\section{Úvod}
+
+\begin{frame}
+    \frametitle{Nadpis 1}
+    \framesubtitle{Podnadpis}
+    Obsah prvniho slajdu.
+\end{frame}
+
+\section{Bloky}
+
+\begin{frame}
+    \frametitle{Představení bloků}
+    \begin{block}{Nadpis bloku}
+        \centering
+        $x$ + 1 = $b$
+    \end{block}
+
+    \pause
+
+    \begin{exampleblock}{Příkladový blok}
+        Obsah příkladového bloku
+    \end{exampleblock}
+
+    \pause
+
+    \begin{alertblock}{Alertblock}
+        Pozor
+
+    \end{alertblock}
+\end{frame}
+
+\section{Seznam}
+
+\begin{frame}
+    \frametitle{Seznam}
+    \begin{block}{Seznam}        
+    \begin{itemize}[<+->] % -+ odebira
+        \item 1. bod
+        \item 2. bod
+        \item 3. bod
+        \item 4. bod
+        \item \dots
+    \end{itemize}
+    \end{block}
+\end{frame}
+\end{document}

@@ -1,0 +1,342 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "GVzR7rjwQolo"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "from scipy import stats"
+      ],
+      "metadata": {
+        "id": "7xCsY9bls89V"
+      },
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data = np.random.normal(loc=0, scale=1, size=100)"
+      ],
+      "metadata": {
+        "id": "4oUzpnRQtHXs"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import seaborn as sns\n",
+        "sns.distplot(data)\n"
+      ],
+      "metadata": {
+        "id": "Oi99NAWit7GN"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "stat, p = stats.shapiro(data)\n",
+        "print('Statistic = %.3f, p-value = %.3f' % (stat, p))"
+      ],
+      "metadata": {
+        "id": "OINTFQbQtLYl"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "result = stats.anderson(data)\n",
+        "print('Statistic = %.3f' % result.statistic)\n",
+        "for i in range(len(result.critical_values)):\n",
+        "    sl, cv = result.significance_level[i], result.critical_values[i]\n",
+        "    if result.statistic < cv:\n",
+        "        print('Result statistic %.3f < %.3f: data are normal (fail to reject H0)' % (result.statistic, cv))\n",
+        "    else:\n",
+        "        print('Result statistic %.3f > %.3f: data are normal (fail to reject H0)' % (result.statistic, cv))"
+      ],
+      "metadata": {
+        "id": "TsH_PCrkuSOV"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Application for Fisher's iris dataset\n",
+        "from scipy.stats import shapiro\n",
+        "from sklearn.datasets import load_iris"
+      ],
+      "metadata": {
+        "id": "SbRjF5TI2eqm"
+      },
+      "execution_count": 6,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "iris = load_iris()\n",
+        "data = iris.data"
+      ],
+      "metadata": {
+        "id": "uHUv4nkYJ7B-"
+      },
+      "execution_count": 7,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "sepal_length = data[:,0]\n",
+        "sepal_widht = data[:,1]\n",
+        "petal_length = data[:,2]\n",
+        "petal_width = data[:,3]"
+      ],
+      "metadata": {
+        "id": "UdUTo1CaJ_Al"
+      },
+      "execution_count": 8,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "sns.distplot(sepal_length)"
+      ],
+      "metadata": {
+        "id": "X1udiEtUKGGN"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "sns.distplot(sepal_widht)"
+      ],
+      "metadata": {
+        "id": "iIxWZCSZKq2O"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "sns.distplot(petal_length)"
+      ],
+      "metadata": {
+        "id": "GRBrASMYKxxl"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "sns.distplot(petal_width)"
+      ],
+      "metadata": {
+        "id": "zaGUUFv9KyBc"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "stat1, p1 = shapiro(sepal_length)\n",
+        "print('Statistic1 = %.3f, p-value = %.3f' % (stat1, p1))\n",
+        "stat2, p2 = shapiro(sepal_widht)\n",
+        "print('Statistic2 = %.3f, p-value = %.3f' % (stat2, p2))\n",
+        "stat3, p3 = shapiro(petal_length)\n",
+        "print('Statistic3 = %.3f, p-value = %.3f' % (stat3, p3))\n",
+        "stat4, p4 = shapiro(petal_width)\n",
+        "print('Statistic4 = %.3f, p-value = %.3f' % (stat4, p4))"
+      ],
+      "metadata": {
+        "id": "VBE-qShVLEJm",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "48f78b43-2d74-4dfe-9a67-3b3af991ee5a"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Statistic1 = 0.976, p-value = 0.010\n",
+            "Statistic2 = 0.985, p-value = 0.101\n",
+            "Statistic3 = 0.876, p-value = 0.000\n",
+            "Statistic4 = 0.902, p-value = 0.000\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "################################################################################\n",
+        "# Použití bayesovckých kritérií pro ověření hypotézy o normalitě rozdělení dat\n",
+        "#1.  Importování potřebných knihoven:\n",
+        "import numpy as np\n",
+        "import scipy.stats as stats\n",
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt"
+      ],
+      "metadata": {
+        "id": "yhA77JsvP0Ce"
+      },
+      "execution_count": 18,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data = np.random.normal(loc=0, scale=1, size=100)"
+      ],
+      "metadata": {
+        "id": "hwxLQfLtQlOk"
+      },
+      "execution_count": 19,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Bayesovský informační kritérium (BIC)\n",
+        "n = len(data)\n",
+        "k = 2  # Počet parametrů rozdělení - střední hodnota a směrodatná odchylka\n",
+        "log_likelihood = np.sum(stats.norm.logpdf(data, np.mean(data), np.std(data)))\n",
+        "bic = -2 * log_likelihood + k * np.log(n)\n"
+      ],
+      "metadata": {
+        "id": "ThUlRsJKQo4N"
+      },
+      "execution_count": 20,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print('BIC = %.3f' % bic)\n"
+      ],
+      "metadata": {
+        "id": "zyxTU4c4Q3vM"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Comparing two distributions\n",
+        "# generate two random samples from normal distributions\n",
+        "np.random.seed(42)\n",
+        "sample1 = np.random.normal(0, 1, size=100)\n",
+        "sample2 = np.random.normal(1, 1, size=100)"
+      ],
+      "metadata": {
+        "id": "j1l9KAHRTRn1"
+      },
+      "execution_count": 22,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# plot histograms of the two samples\n",
+        "plt.hist(sample1, alpha=0.5, label='Sample 1')\n",
+        "plt.hist(sample2, alpha=0.5, label='Sample 2')\n",
+        "plt.legend()\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "id": "lTeZr1hZVp-G"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Bayesovský informační kritérium (BIC)\n",
+        "n1 = len(sample1)\n",
+        "k = 2  # Počet parametrů rozdělení - střední hodnota a směrodatná odchylka\n",
+        "log_likelihood1 = np.sum(stats.norm.logpdf(sample1, np.mean(sample1), np.std(sample1)))\n",
+        "bic1 = -2 * log_likelihood1 + k * np.log(n1)\n",
+        "\n",
+        "n2 = len(sample2)\n",
+        "k = 2  # Počet parametrů rozdělení - střední hodnota a směrodatná odchylka\n",
+        "log_likelihood2 = np.sum(stats.norm.logpdf(sample2, np.mean(sample2), np.std(sample2)))\n",
+        "bic2 = -2 * log_likelihood2 + k * np.log(n2)\n"
+      ],
+      "metadata": {
+        "id": "MwVU0aXLY2tk"
+      },
+      "execution_count": 24,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print('BIC1 = %.3f' % bic1)\n",
+        "print('BIC2 = %.3f' % bic2)\n"
+      ],
+      "metadata": {
+        "id": "Kn1FpqzzQHL0"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "niJdL5oQa4XW"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "wDH0n65tbGfd"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}

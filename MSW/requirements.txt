@@ -1,0 +1,4 @@
+numpy==1.25.0
+plotly==5.15.0
+ipykernel==6.23.2
+nbformat==5.9.0

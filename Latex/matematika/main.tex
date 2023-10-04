@@ -34,6 +34,26 @@
 Píšu tady nějaký text a tady je odkaz na poznamku \footnote[1]{První poznámka}.
 Poznámky \footnotemark[1]{} se objeví pod čarou dole \footnote{Druhá poznámka}
 
+Zajímá-li nás tabulka, tak tady jedna je \ref{jednoducha tabulka}.
+
+\begin{table}[h]
+    \centering
+    \caption{Jednoduchá tabulka}
+    \label{jednoducha tabulka}
+    \medskip
+    % \vspace{1cm}
+    \begin{tabular}{| l | p{3cm} | c | r |}
+        \hline
+        slovo &   &   & 4 \\
+        \hline
+        \hline
+        5 & 6 & 7 & konec  \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\listoftables
+
 \begin{multicols}{4}
     \tiny
     \lipsum[1-2]

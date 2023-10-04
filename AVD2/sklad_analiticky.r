@@ -16,5 +16,6 @@ a[1] <- 1
 a <- a %*% (m %^% 14)
 colnames(a) <- 100:(-1)
 
+
 tk <- Sys.time()
 print(tk - tb)

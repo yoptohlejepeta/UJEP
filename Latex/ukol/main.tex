@@ -1,0 +1,131 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.54cm, a4paper]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath, amsthm}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+
+\fancyhead{}
+\fancyhead[R]{Úvod do Latexu}
+\fancyhead[L]{Petr Kotlan}
+
+\fancyfoot{}
+\fancyfoot[L]{převzato z~Jukl: \emph{Analytická geometrie}}
+\fancyfoot[R]{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newtheorem{thm}{Věta}
+
+\begin{document}
+\title{Příklad 1.2.15}
+\author{Marek Jukl\thanks{Sazbu provedl Petr Kotlan}}
+\maketitle
+
+\vspace{4cm}
+\noindent \begin{tcolorbox}[colback=white, left=2pt, right=2pt, arc=0pt, outer arc=0pt,
+		before upper={\begin{minipage}{1\textwidth}}, after upper={\end{minipage}}]
+	\begin{thm}
+		\begin{flushleft}
+			\cite[str. 29]{jukl}
+			\quad Buďte $\mathcal{B}$ a~$\mathcal{C}$, $\mathcal{B} = \langle P;\vec{e}_1,\vec{e}_2,\cdots,\vec{e}_n\rangle$, $\mathcal{C} = \langle Q;\vec{a}_1,\vec{a}_2,\cdots,\vec{a}_n\rangle$, libovolné afinní báze prostoru $\mathcal{A}_n$ a~nechť $$Q=[b_1, b_2, \cdots, b_n]_{\mathcal{B}},$$ $$\vec{a}_i=(a_{i1}, a_{i2}, \cdots, a_{in})_{\mathcal{B}_0},\quad 1 \leq i \leq n.$$ Pak pro každý bod $X \in \mathcal{A}_n$, $X=[x_1, \cdots, x_n]_{\mathcal{B}}$, platí: $X=[y_1, \cdots, y_n]_{\mathcal{C}}$, právě když skaláry $x_1, \cdots, x_n$, $y_1, \cdots, y_n$ vyhovují relacím $$x_j=\sum_{i=1}^{n} a_{ij}y_i+b_j,\quad 1 \leq j \leq n.$$
+		\end{flushleft}
+		\label{1.2.11}
+	\end{thm}
+\end{tcolorbox}
+\vspace*{\fill}
+
+
+\pagebreak
+
+\noindent \begin{tcolorbox}[colback=white, left=2pt, right=2pt, arc=0pt, outer arc=0pt,
+	before upper={\begin{minipage}{1\textwidth}}, after upper={\end{minipage}}]
+	\begin{flushleft}
+		\textbf{Příklad \cite[str. 31--32]{jukl}}
+		Nechť je dán afinní prostor $\mathcal{A}_3$ a~v~něm afinní báze $\mathcal{B}$, $\mathcal{C}$ takto: $$\mathcal{B}=\langle P;\vec{e}_1,\vec{e}_2,\vec{e}_3\rangle, \mathcal{C}=\langle Q;\vec{a}_1,\vec{a}_2,\vec{a}_3\rangle,$$ \noindent přičemž platí: $$P=[1,0-1]_{\mathcal{C}}, \vec{e}_1=(2,0,1)_{\mathcal{C}_0}, \vec{e}_2=(1,1,0)_{\mathcal{C}_0}, \vec{e}_1=(0,-1,1)_{\mathcal{C}_0}$$ \noindent Napište transformační rovnice pro přechod od soustavy souřadné dané bází $\mathcal{B}$ k~soustavě dané bází $\mathcal{C}$.
+	\end{flushleft}
+\end{tcolorbox}
+
+
+\noindent \textit{Řešení:}
+
+
+\noindent K~nalezení rovnic pro přechod od $\mathcal{S_B}$ k~$\mathcal{S_C}$ je třeba znát souřadnice prvků báze $\mathcal{C}$ vzhledem k~bázi $\mathcal{B}$ (viz věta \ref{1.2.11}).
+
+
+Jednou z~možností je tedy postupem známým z~lineární algebry nalézt prvky $a_{ij}$ s~vlastností
+
+$$\vec{a}_i=a_{i1}\vec{e}_1+a_{i2}\vec{e}_2+a_{i3}\vec{e}_3,\quad 1\leq i\leq 3$$
+
+\noindent Známým postupem bychom potom zjistili (proveďte!), že:
+
+$$\vec{a}_1=(1,-1,-1)_{\mathcal{B}_0},\, \vec{a}_2=(-1,2,1)_{\mathcal{B}_0},\, \vec{a}_1=(-1,2,2)_{\mathcal{B}_0}$$
+
+\noindent Transformační rovnice z~věty \ref{1.2.11} pro náš příklad tedy znějí ($[x_1, x_2, x_3]$ jsou souřadnice vůči $\mathcal{B}$, $[y_1, y_2, y_3]$ vůči $\mathcal{C}$):
+
+\begin{equation*}
+	\begin{aligned}
+		x_1 & =  &  & y_1 &  & - &  & y_2  &  & - &  & y_3  &  & + &  & b_1 \\
+		x_2 & =- &  & y_1 &  & + &  & 2y_2 &  & + &  & 2y_3 &  & + &  & b_2 \\
+		x_3 & =- &  & y_1 &  & + &  & y_2  &  & + &  & 2y_3 &  & + &  & b_3
+	\end{aligned}
+\end{equation*}
+
+\noindent Je tedy již jen třeba nalézt konstanty $b_1$, $b_2$, $b_3$, což lze provést např. tak, že využijeme znalosti souřadnic některého bodu v~obou soustavách -- tímto je bod $P$, pro nějž současně platí (proč?):
+
+$$P=[1,0,-1]_{\mathcal{C}}=[0,0,0]_{\mathcal{B}}$$
+
+\noindent Dosazením do rovnic zjistíme, že $b_1=-2$, $b_2=3$ a~$b_3=3$.
+
+Lze také postupovat jinak -- zřejme můžeme ihned napsat transformační rovnice pro přechod soustavy souřadnic určené bází $\mathcal{C}$ k~soustavě určené bází $\mathcal{B}$ ($[x_1, x_2, x_3]$ jsou opět souřadnice $\mathcal{B}$, $[y_1, y_2, y_3]$ vůči $\mathcal{C}$):
+
+\begin{equation*}
+	\tag{1}\label{eq:1}
+	\begin{rcases*}
+		\begin{aligned}
+			y_1 & = &  & 2x_1 &  & + &  & x_2 &  &       &  & + 1 \\
+			y_2 & = &  &      &  &   &  & x_2 &  & - x_3 &  &     \\
+			y_3 & = &  & x_1  &  &   &  &     &  & + x_3 &  & - 1
+		\end{aligned}
+	\end{rcases*}
+\end{equation*}
+
+\noindent Nalézt předpis pro přechod inverzní, tj. od $\mathcal{S_C}$ k~$\mathcal{S_B}$, znamena vyjádřit $x_1$, $x_2$, $x_3$ pomocí $y_1$, $y_2$, $y_3$, neboli pohlížet na \eqref{eq:1} jako na soustavu lineárních rovnic o~neznamých $x_1$, $x_2$, $x_3$ ($y_1$, $y_2$, $y_3$ představují parametry rovnic) a~tuto vyřešit. 
+
+\pagebreak
+
+\noindent Matice této soustavy zní:
+
+$$\left(
+	\begin{array}{ccc|c}
+			2 & 1 & \hphantom{-}0 & {y_1-1} \\
+			0 & 1 & {-1}         & y_2     \\
+			1 & 0 & \hphantom{-}1 & {y_3+1} \\
+		\end{array}
+	\right)$$
+
+\noindent známým způsobem nalezneme její řešení ve tvaru:
+
+\begin{equation*}
+	\begin{aligned}
+		x_1 & =  &  & y_1 &  & - &  & y_2  &  & - &  & y_3  &  & - &  & 2 \\
+		x_2 & =- &  & y_1 &  & + &  & 2y_2 &  & + &  & 2y_3 &  & + &  & 3 \\
+		x_3 & =- &  & y_1 &  & + &  & y_2  &  & + &  & 2y_3 &  & + &  & 3
+	\end{aligned}
+\end{equation*}
+
+\noindent což právě jsou hledané rovnice.
+
+\begin{thebibliography}{9}
+	\bibitem{jukl}
+	Jukl, M. (2014). \textit{Analytická geometrie}. Univerzita Palackého v~Olomouci. \break
+	\url{https://kag.upol.cz/data/upload/15/AG-Jukl.pdf}
+\end{thebibliography}
+\end{document}

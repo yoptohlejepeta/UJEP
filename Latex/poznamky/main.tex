@@ -1,21 +1,119 @@
 \documentclass[a4paper, 12pt]{article}
 
+
 \usepackage[czech]{babel}
 \usepackage[T1]{fontenc}
-\usepackage[a4paper, margin=2cm]{geometry}
-\usepackage{amsmath}
-\usepackage{amssymb}
-% \usepackage{amsthm}
-% package - mathtool
-
 \usepackage{graphicx}
-\usepackage[unicode]{hyperref}
+\usepackage[unicode]{hyperref} % unicode propisuje diakritiku do menu
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{pagecolor}
+
+\usepackage{lipsum}
+\usepackage{marginnote}
+\usepackage[a4paper, marginparwidth=3cm, marginparsep=5mm,left=3cm, right=4cm, top=2cm, bottom=4cm]{geometry}
+\usepackage{fancyhdr}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+\definecolor{moleskin}{HTML}{FFF8DC}
 
 
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{white},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{ballblue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\pagestyle{fancy}
 
 \author{Petr Kotlan}
-\date{}
-
+\title{Kód a pozicování textu}
 
 \begin{document}
+
+\pagecolor{moleskin}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Code}
+\noindent Nějaký text předtím.
+\begin{verbatim*}
+    for i in range(10):
+    print(i)
+\end{verbatim*}
+Nějaký text po tom.
+
+\subsection{Code itself}
+\begin{lstlisting}[language=Python, caption=Python example]
+import numpy as np
+    
+def incmatrix(genl1,genl2):
+    m = len(genl1)
+    n = len(genl2)
+    M = None #to become the incidence matrix
+    VT = np.zeros((n*m,1), int)  #dummy variable
+    
+    #compute the bitwise xor matrix
+    M1 = bitxormatrix(genl1)
+    M2 = np.triu(bitxormatrix(genl2),1) 
+
+    for i in range(m-1):
+        for j in range(i+1, m):
+            [r,c] = np.where(M2 == M1[i,j])
+            for k in range(len(r)):
+                VT[(i)*n + r[k]] = 1;
+                VT[(i)*n + c[k]] = 1;
+                VT[(j)*n + r[k]] = 1;
+                VT[(j)*n + c[k]] = 1;
+                
+                if M is None:
+                    M = np.copy(VT)
+                else:
+                    M = np.concatenate((M, VT), 1)
+                
+                VT = np.zeros((n*m,1), int)
+    
+    return M
+    \end{lstlisting}
+
+\marginnote{\color{red} Poznamka na okraj }
+\pagebreak
+
+\section{Poem}
+\begin{verse}
+    Ptal se jednou jeden pán.\\
+    Kudy tudy do hajan?\\
+    To se dáte podél plotu.\\
+    od klímadel na dřímotu.
+
+    V parku stojí socha,\\
+    děvčete a hocha.\\
+    S neskrývanou rozkoší\\
+    každou noc tu sousoší.
+
+
+
+\end{verse}
+
 \end{document}
